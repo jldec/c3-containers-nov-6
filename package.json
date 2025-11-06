@@ -3,32 +3,27 @@
 	"description": "Build a Container-enabled Worker",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"cf-typegen": "wrangler types"
-	},
-	"devDependencies": {
-		"@types/node": "^24.10.0",
-		"typescript": "5.8.3",
-		"wrangler": "^4.45.4"
+		"ship": "wrangler deploy",
+		"types": "wrangler types --include-runtime false --strict-vars false",
+		"check": "tsc"
 	},
 	"dependencies": {
-		"@cloudflare/containers": "^0.0.28",
-		"hono": "4.8.2"
+		"@cloudflare/containers": "^0.0.30",
+		"hono": "4.10.4"
 	},
-	"cloudflare": {
-		"label": "Containers Starter",
-		"products": [
-			"Workers",
-			"Durable Objects",
-			"Containers"
-		],
-		"categories": [],
-		"docs_url": "https://developers.cloudflare.com/containers/",
-		"preview_image_url": "https://imagedelivery.net/_yJ02hpOMj_EnGvsU2aygw/5aba1fb7-b937-46fd-fa67-138221082200/public",
-		"icon_urls": [
-			"https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/5ca0ca32-e897-4699-d4c1-6b680512f000/public"
-		]
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20251014.0",
+		"@types/node": "^24.10.0",
+		"typescript": "5.9.3",
+		"wrangler": "^4.46.0"
+	},
+	"prettier": {
+		"printWidth": 120,
+		"useTabs": false,
+		"tabWidth": 2,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"semi": false
 	}
 }
